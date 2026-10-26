@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aimé Painé - Campus EMPA</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 20px 10px;
+      background-color: #f4f4f4;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .main-container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    /* Encabezado Institucional */
+    .header-box {
+      background-color: #f6f6f6;
+      border: 1px solid #cccccc;
+      border-bottom: none;
+      padding: 12px 15px;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+    .header-voces {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: #555555;
+      letter-spacing: 1.5px;
+    }
+    .header-logo {
+      max-height: 42px;
+      width: auto;
+    }
+    .header-title {
+      margin: 0;
+      font-size: 1.6rem;
+      color: #222222;
+      font-weight: bold;
+      letter-spacing: 0.3px;
+    }
+
+    /* Subtítulo y Video */
+    .video-box {
+      background-color: #ebebeb;
+      border: 1px solid #cccccc;
+      border-bottom: none;
+      padding: 10px 12px 15px 12px;
+    }
+    .video-text-1 {
+      font-size: 1.1rem;
+      color: #333333;
+      margin-top: 5px;
+      margin-bottom: 4px;
+    }
+    .video-text-2 {
+      font-size: 1.1rem;
+      color: #333333;
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      background-color: #000000;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Título de la Sección de Audio */
+    .section-title {
+      background-color: #ebebeb;
+      border: 1px solid #cccccc;
+      border-bottom: none;
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: bold;
+      color: #222222;
+      font-size: 1.1rem;
+    }
+
+    /* Grilla de Canciones de 2 Columnas */
+    .grid-container {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      border-bottom: none;
+    }
+    .grid-col {
+      flex: 1;
+      min-width: 300px;
+    }
+    .grid-col-left {
+      border-right: 1px solid #cccccc;
+    }
+    .track-row {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px;
+      border-bottom: 1px solid #cccccc;
+      text-align: left;
+    }
+    .grid-col .track-row:last-child {
+      border-bottom: none;
+    }
+    .track-num {
+      font-size: 1.15rem;
+      color: #555555;
+      width: 35px;
+      text-align: center;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+    .track-info {
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+    /* Estilo exclusivo del título principal de la pista */
+    .track-info .track-title {
+      color: #222222;
+      font-weight: bold;
+      font-size: 1.05rem;
+      text-decoration: underline;
+    }
+    /* Estilo del subtítulo explicativo */
+    .track-info span {
+      font-size: 0.85rem;
+      color: #666666;
+    }
+    /* Estilo exacto para enlaces a Wikipedia (Pewen, Guanaco, Zorro, Huala) */
+    .track-info span a {
+      color: #333333;
+      font-weight: normal;
+      font-size: 0.85rem;
+      text-decoration: underline;
+    }
+    
+    .bg-gray {
+      background-color: #f9f9f9;
+    }
+    .bg-white {
+      background-color: #ffffff;
+    }
+
+    /* Pie de página y Fuentes */
+    .footer-box {
+      background-color: #ebebeb;
+      border: 1px solid #cccccc;
+      padding: 15px;
+      text-align: left;
+      font-size: 0.85rem;
+      color: #333333;
+      line-height: 1.5;
+    }
+    .sources-card {
+      text-align: center;
+      margin-top: 15px;
+      background-color: #ffffff;
+      border: 1px solid #dcdcdc;
+      border-radius: 6px;
+      padding: 12px 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .sources-item {
+      display: inline-block;
+      margin: 5px 12px;
+      vertical-align: middle;
+      color: #333333;
+    }
+
+    @media (max-width: 650px) {
+      .grid-col-left {
+        border-right: none;
+        border-bottom: 1px solid #cccccc;
+      }
+      .grid-col {
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="main-container">
+
+  <!-- Encabezado Institucional -->
+  <div class="header-box">
+    <div class="header-top">
+      <span class="header-voces">Voces</span>
+      <img src="https://ik.imagekit.io/BiblioDigitalEmpa/Iconos/Generales/Campus_EMPA.png" alt="Campus EMPA" class="header-logo">
+    </div>
+    <h1 class="header-title">Aimé Painé</h1>
+  </div>
+
+  <!-- Subtítulo y Video -->
+  <div class="video-box">
+    <p class="video-text-1">Aimé Painé, primera artista en cantar mapudungún en los escenarios,</p>
+    <p class="video-text-2">dedicó su vida a la visibilización y reivindicación de los pueblos originarios.</p>
+    <div class="video-wrapper">
+      <iframe title="Vidas con historia. Aimé Painé (video)" src="https://www.youtube-nocookie.com/embed/rT3o_Z3PfWA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Título de la Sección de Audio -->
+  <div class="section-title">
+    Aimé Painé en vivo, Esquel · 1983
+  </div>
+
+  <!-- Grilla de Canciones: 2 Columnas -->
+  <div class="grid-container">
+    <!-- Columna Izquierda (01 al 06) -->
+    <div class="grid-col grid-col-left">
+      <div class="track-row bg-gray">
+        <div class="track-num">01</div>
+        <div class="track-info">
+          <a class="track-title" href="https://campus-virtual-empa.github.io/Musica-Patagonica/01.html" target="_blank" rel="noopener noreferrer">Kelluen may Tayül</a><br>
+          <span>Canto de agradecimiento</span>
+        </div>
+      </div>
+      <div class="track-row bg-white">
+        <div class="track-num">02</div>
+        <div class="track-info">
+          <a class="track-title" href="https://campus-virtual-empa.github.io/Musica-Patagonica/02.html" target="_blank" rel="noopener noreferrer">Kürüf Tayül</a><br>
+          <span>Canto sagrado del viento</span>
+        </div>
+      </div>
+      <div class="track-row bg-gray">
+        <div class="track-num">03</div>
+        <div class="track-info">
+          <a class="track-title" href="https://campus-virtual-empa.github.io/Musica-Patagonica/03.html" target="_blank" rel="noopener noreferrer">Pewen Tayül</a><br>
+          <span>Canto sagrado del <a href="https://es.wikipedia.org/wiki/Araucaria_araucana" target="_blank" rel="noopener noreferrer">Pewen</a></span>
+        </div>
+      </div>
+      <div class="track-row bg-white">
+        <div class="track-num">04</div>
+        <div class="track-info">
+          <a class="track-title" href="https://campus-virtual-empa.github.io/Musica-Patagonica/04.html" target="_blank" rel="noopener noreferrer">Luan Tayül</a><br>
+          <span>Canto sagrado del <a href="https://es.wikipedia.org/wiki/Lama_guanicoe" target="_blank" rel="noopener noreferrer">Guanaco</a></span>
+        </div>
+      </div>
+      <div class="track-row bg-gray">
+        <div class="track-num">05</div>
+        <div class="track-info">
+          <a class="track-title" href="https://campus-virtual-empa.github.io/Musica-Patagonica/05.html" target="_blank" rel="noopener noreferrer">Ngüru Tayül</a><br>
+          <span>Canto sagrado del <a href="https://es.wikipedia.org/wiki/Lycalopex_griseus" target="_blank" rel="noopener noreferrer">Zorro</a></span>
+        </div>
+      </div>
+      <div class="track-row bg-white">
+        <div class="track-num">06</div>
+        <div class="track-info">
+          <a class="track-title" href="https://campus-virtual-empa.github.io/Musica-Patagonica/06.html" target="_blank" rel="noopener noreferrer">Huala Tayül</a><br>
+          <span>Canto sagrado del <a href="https://es.wikipedia.org/wiki/Podiceps_major" target="_blank" rel="noopener noreferrer">Huala</a></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna Derecha (07 al 12) -->
+    <div class="grid-col">
+      <div class="track-row bg-gray">
+        <div class="track-num">07</div>
+        <div class="track-info">
+          <a class="track-title" href="https://campus-virtual-empa.github.io/Musica-Patagonica/07.html" target="_blank" rel="noopener noreferrer">Juan Milwe ñi Ülkantun</a><br>
+          <span>Canto popular de Juan del Milwe</span>
+        </div>
+      </div>
+      <div class="track-row bg-white">
+        <div class="track-num">08</div>
+        <div class="track-info">
+          <a class="track-title" href="https://campus-virtual-empa.github.io/Musica-Patagonica/08.html" target="_blank" rel="noopener noreferrer">Karu Walyen Purrun</a><br>
+          <span>Danza sagrada de la primavera verde</span>
+        </div>
+      </div>
+      <div class="track-row bg-gray">
+        <div class="track-num">09</div>
+        <div class="track-info">
+          <a class="track-title" href="https://campus-virtual-empa.github.io/Musica-Patagonica/09.html" target="_blank" rel="noopener noreferrer">Pillán Purrun</a><br>
+          <span>Danza del Espíritu del Volcán</span>
+        </div>
+      </div>
+      <div class="track-row bg-white">
+        <div class="track-num">10</div>
+        <div class="track-info">
+          <a class="track-title" href="https://campus-virtual-empa.github.io/Musica-Patagonica/10.html" target="_blank" rel="noopener noreferrer">Trompetuyun</a><br>
+          <span>El toque del trompe</span>
+        </div>
+      </div>
+      <div class="track-row bg-gray">
+        <div class="track-num">11</div>
+        <div class="track-info">
+          <a class="track-title" href="https://campus-virtual-empa.github.io/Musica-Patagonica/11.html" target="_blank" rel="noopener noreferrer">Trompe</a><br>
+          <span>El toque del trompe</span>
+        </div>
+      </div>
+      <div class="track-row bg-white">
+        <div class="track-num">12</div>
+        <div class="track-info">
+          <a class="track-title" href="https://campus-virtual-empa.github.io/Musica-Patagonica/12.html" target="_blank" rel="noopener noreferrer">¡Peucayal!</a><br>
+          <span>Hasta pronto</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pie de página Completo -->
+  <div class="footer-box">
+    <p style="margin: 0 0 10px 0; font-style: italic; color: #222222;">"Una 'joya' de archivo fónico que digitalicé hace varios años..., el material original fue grabado por 'Cacho' Sastre y Félix Baliente, operador y locutor de Radio Nacional por aquellos años 80, acá el Recital completo de Aimé Painé en el escenario de la Escuela Normal, material muy didáctico por cierto e invaluable para quienes estamos en la búsqueda constante de nuestra Cultura Ancestral, sepan que todo lo que anda dando vueltas por ahí, salió de esta grabación; después de horas de laburo, reproducir, escuchar la 'Cinta Abierta' para después pasar al formato digital."</p>
+    <p style="margin: 0 0 15px 0; text-align: right;"><a style="color: #222222; font-weight: bold; text-decoration: underline;" href="https://www.youtube.com/channel/UCHzRBzd2cmjEN3OseRBbPfQ" target="_blank" rel="noopener noreferrer">Lito Patagónico</a></p>
+    <p style="margin: 0 0 10px 0; text-align: center; color: #333333;">La presente edición con las canciones separadas del texto de explicación de Aimé, fue extraída desde el video original iterada para estudio y uso académico, transcripta, traducida, analizada y verificada para su validación utilizando Gemini Pro 3.6 Thinking, para rastreo y cotejo de fuentes.</p>
+    <p style="margin: 0 0 15px 0; text-align: center; color: #555555;">Las ilustraciones referentes pertenecen a Santos Chávez, Celya Clayton, Museo Nacional Antropológico de Chile, Fundación Santos Chávez, Mariana Bresolin.</p>
+    
+    <!-- Tarjeta de Fuentes Flotante -->
+    <div class="sources-card">
+      <span style="font-size: 1rem; font-weight: bold; color: #222222; display: inline-block; margin: 5px 12px;">Fuentes</span>
+      <span class="sources-item"> Audiovideo ⇒ <a style="vertical-align: middle;" href="https://youtu.be/bSF_me3UTIU" target="_blank" rel="noopener noreferrer"> <img style="vertical-align: middle;" src="https://ik.imagekit.io/BiblioDigitalEmpa/Iconos/Generales/LOGO_YouTube.png?updatedAt=1790378983650" alt="Video" width="22" height="22"> </a> </span>
+      <span class="sources-item"> Iteración por Temas ⇒ <a style="vertical-align: middle;" href="https://drive.google.com/drive/folders/1ik-hLggyzP1xOZJz3Q_hvb5gUZNP9Crx?usp=drive_link" target="_blank" rel="noopener noreferrer"> <img style="vertical-align: middle;" src="https://ik.imagekit.io/BiblioDigitalEmpa/Iconos/Generales/GoogDr.png" alt="Drive" width="22" height="22"> </a> </span>
+      <span class="sources-item"> Textos ⇒ <a style="vertical-align: middle;" href="https://docs.google.com/document/d/1Qyoz-bImipq8stZ5OCsGu7XKuTxqP-8AgkQoMAEp7d0/edit?usp=sharing" target="_blank" rel="noopener noreferrer"> <img style="vertical-align: middle;" src="https://ik.imagekit.io/BiblioDigitalEmpa/Iconos/Generales/Bib_empa.png" alt="Texto" width="22" height="22"> </a> </span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
